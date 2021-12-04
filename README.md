@@ -8,8 +8,8 @@ Notes:
 	4.	
 https://blog.miguelgrinberg.com/post/how-to-dockerize-a-react-flask-project
 
-docker build -f Dockerfile.api -t react-ec2 .
-docker run  -d  -v ${PWD}:/app  --rm -p 5000:5000 react-ec2 
+docker build -f Dockerfile.api -t kern-ec2 .
+docker run  -d  -v ${PWD}:/app  --rm -p 5000:5000 kern-ec2 
 .
 
 
