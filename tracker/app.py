@@ -22,27 +22,14 @@ from flask import Flask, render_template, request, redirect, url_for, send_file,
 ###############################################
 #      Define navbar with logo                #
 ###############################################
-'''
-logo = img(src='./static/img/logo.png', height="50", width="50", style="margin-top:-15px")
-#here we define our menu items
 
-topbar = Navbar(logo,
-                Link('IXWater','http://ixwater.com'),
-                View('Home', 'main')     
-                )
-
-# registers the "top" menubar
-nav = Nav()
-nav.register_element('top', topbar)
-
-'''
 
 
 app = Flask(__name__)
 #Bootstrap(app)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 map_dict = {  'CenCal.html' : ['California Water Districts and Pits','Top 3 producers'],
-              'california_wellcanal.html' : ['California Wells', ' map by Todd']
+              'california_kerncounty.html' : ['Kern County', ' map by Todd']
 }
 app.vars = {}
 
@@ -67,14 +54,16 @@ def main():
 def index():
   if request.method == 'GET':
     #return render_template('input.html')
-    map_name = f"CenCal.html"
+    map_name = f"california_kerncounty.html"
+    #map_name = f"CenCal.html"
+    
     #have to set map path - used by template
     map_path = os.path.join(app.root_path, 'static/' + map_name)
     print(map_path)
     app.vars['map_path'] = map_path
     print(app.vars['map_path'])
-    app.vars['Title_line1'] = "California Water Districts and Pits"
-    app.vars['Title_line2'] = "Top 3 producers"
+    app.vars['Title_line1'] = map_dict[map_name][0]
+    app.vars['Title_line2'] = map_dict[map_name][1]
 
     
     if Path(map_path).exists():
@@ -86,7 +75,7 @@ def index():
 
 @app.route('/map', methods=['GET'])
 # http://localhost:5000/map?map=CenCal.html
-# http://localhost:5000/map?map=california_wellcanal.html
+# http://localhost:5000/map?map=california_kerncounty.html
 @nocache
 def get_map():
   args = request.args
@@ -139,6 +128,14 @@ def geoerror():
 #nav.init_app(app)
 
 if __name__ == '__main__':
-  app.debug = True
 
-  app.run(host='0.0.0.0')
+   PATH = Path.cwd()
+   print(PATH)
+   STATIC_PATH = Path.cwd() / "static"
+   MAP_PATH = Path.cwd() / "maps"
+   out_zip = os.path.join(MAP_PATH, "map.zip")
+   zip_ref = zipfile.ZipFile(out_zip, "r")
+   zip_ref.extractall(STATIC_PATH)
+   app.debug = True
+
+   app.run(host='0.0.0.0')
