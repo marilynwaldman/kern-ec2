@@ -9,10 +9,7 @@ import json
 from functools import wraps, update_wrapper
 from datetime import datetime
 from pathlib import Path
-#from flask_bootstrap import Bootstrap
-#from flask_nav import Nav
-#from flask_nav.elements import *
-#from dominate.tags import img
+
 
 
 from ediblepickle import checkpoint
@@ -29,7 +26,8 @@ app = Flask(__name__)
 #Bootstrap(app)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 map_dict = {  'CenCal.html' : ['California Water Districts and Pits','Top 3 producers'],
-              'california_venturacounty_4dec2021.html' : ['Ventura County', 'Todd Arbetter']
+              'california_venturacounty_4dec2021.html' : ['Ventura County', 'Todd Arbetter'],
+               'california_kerncounty.html' : ['Kern County', 'Todd Arbetter']
 }
 app.vars = {}
 
@@ -76,7 +74,8 @@ def index():
 @app.route('/map', methods=['GET'])
 # http://localhost:5000/map?map=CenCal.html
 # http://localhost:5000/map?map=california_kerncounty.html
-@nocache
+# http://localhost:5000/map?map=california_kerncounty.html
+#@nocache
 def get_map():
   args = request.args
   print (args) # For debugging
@@ -94,6 +93,7 @@ def get_map():
         return redirect('/maperror.html')
 
   pass
+
 
 @app.route('/maps/map.html')
 @nocache
