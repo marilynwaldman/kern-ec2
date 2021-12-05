@@ -128,15 +128,7 @@ def geoerror():
 #nav.init_app(app)
 
 if __name__ == '__main__':
-"""
-   PATH = Path.cwd()
-   print(PATH)
-   STATIC_PATH = Path.cwd() / "static"
-   MAP_PATH = Path.cwd() / "maps"
-   out_zip = os.path.join(MAP_PATH, "map.zip")
-   zip_ref = zipfile.ZipFile(out_zip, "r")
-   zip_ref.extractall(STATIC_PATH)
-"""   
+
    app.debug = True
 
    app.run(host='0.0.0.0')

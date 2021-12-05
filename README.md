@@ -15,8 +15,8 @@ df -h --tota1
 sudo apt-get install docker-compose
 
 unzip map.zip -d ../static
-docker build -f Dockerfile.api -t kern-ec2 .
-docker run  -d  -v ${PWD}:/app  --rm -p 5000:5000 kern-ec2 
+sudo docker build -f Dockerfile.api -t kern-ec2 .
+sudo docker run  -d  -v ${PWD}:/app  --rm -p 5000:5000 kern-ec2 
 
 .
 
