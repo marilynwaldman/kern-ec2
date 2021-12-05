@@ -6,10 +6,14 @@ Notes:
 	2.	http://ec2-35-167-97-155.us-west-2.compute.amazonaws.com:3000
 	3.	https://ec2-35-167-97-155.us-west-2.compute.amazonaws.com:5000/api/time
 	4.	
-https://blog.miguelgrinberg.com/post/how-to-dockerize-a-react-flask-project
 
+https://blog.miguelgrinberg.com/post/how-to-dockerize-a-react-flask-project
+git clone https://github.com/marilynwaldman/kern-ec2.git
+snap/amazon-ssm-agent/4046
+unzip map.zip -d ../static
 docker build -f Dockerfile.api -t kern-ec2 .
 docker run  -d  -v ${PWD}:/app  --rm -p 5000:5000 kern-ec2 
+
 .
 
 
