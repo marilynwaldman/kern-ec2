@@ -8,6 +8,9 @@ Notes:
 	4.	
 
 https://blog.miguelgrinberg.com/post/how-to-dockerize-a-react-flask-project
+
+zip -r map.zip .
+
 git clone https://github.com/marilynwaldman/kern-ec2.git
 sudo apt-get update
 df -h --tota1

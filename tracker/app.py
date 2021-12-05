@@ -29,7 +29,7 @@ app = Flask(__name__)
 #Bootstrap(app)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 map_dict = {  'CenCal.html' : ['California Water Districts and Pits','Top 3 producers'],
-              'california_kerncounty.html' : ['Kern County', ' map by Todd']
+              'california_venturacounty_4dec2021.html' : ['Ventura County', 'Todd Arbetter']
 }
 app.vars = {}
 
@@ -54,7 +54,7 @@ def main():
 def index():
   if request.method == 'GET':
     #return render_template('input.html')
-    map_name = f"california_kerncounty.html"
+    map_name = f"california_venturacounty_4dec2021.html"
     #map_name = f"CenCal.html"
     
     #have to set map path - used by template
