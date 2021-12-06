@@ -9,14 +9,9 @@ import json
 from functools import wraps, update_wrapper
 from datetime import datetime
 from pathlib import Path
+from utils import download_from_gdrive
 
 
-PATH = Path.cwd()
-print(PATH)
-STATIC_PATH = Path.cwd() / "static"
-MAP_PATH = Path.cwd() / "maps"
-print(STATIC_PATH)
-out_zip = os.path.join(MAP_PATH, "map.zip")
-print(out_zip)
-zip_ref = zipfile.ZipFile(out_zip, "r")
-zip_ref.extractall(STATIC_PATH)
+url = "https://drive.google.com/file/d/1bqhQ0Wuv_iVOmQKJafpXpbx891rzPLgV/view?usp=sharing"
+
+download_from_gdrive(url,"CenCal.html.zip","xxx") 
