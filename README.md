@@ -9,19 +9,27 @@ Notes:
 
 https://blog.miguelgrinberg.com/post/how-to-dockerize-a-react-flask-project
 
-zip -r map.zip .
+```
 
 git clone https://github.com/marilynwaldman/kern-ec2.git
 sudo apt-get update
-df -h --tota1
-
 sudo apt-get install docker-compose
 
-unzip map.zip -d ../static
-sudo docker build -f Dockerfile.api -t kern-ec2 .
-sudo docker run  -d  -v ${PWD}:/app  --rm -p 5000:5000 kern-ec2 
+```
 
-.
+```
+cd tracker
+python get_map.py
+sudo docker build -f Dockerfile.api -t kern-ec2 .
+
+sudo docker run  -d  -v ${PWD}:/home/node/app  --rm -p 5000:5000 kern-ec2 
+
+```
+
+try : http:/54.185.54.85/:5000/map?map=california_kerncounty.html
+
+try : http:/54.185.54.85/:5000/map?map=CenCal.html
+
 
 
 ### demo/

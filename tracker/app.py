@@ -141,16 +141,12 @@ def download_maps(dict, dir):
     print(url)
     download_from_gdrive(url,file_name,dir)
 
-  pass 
-
-
-
-  
+  pass  
 
 if __name__ == '__main__':
 
   
-  download_maps(map_dict, "static")           
+  #download_maps(map_dict, "./static")           
   app.debug = True
   
   app.run(host='0.0.0.0')
